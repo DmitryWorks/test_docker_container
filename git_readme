@@ -1,2 +1,4 @@
 Delete local .git file if you wrong in local dev:
 rm -rf .git
+
+some str updated
