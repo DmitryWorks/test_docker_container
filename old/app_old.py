@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Define a route for the root URL ('/')
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World! inside container</p>"
+    return '<p>Hello, World! <span style="color:red">from flask app inside docker container!!!</span></p>'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=50000)
+    app.run()

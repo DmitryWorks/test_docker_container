@@ -1,0 +1,7 @@
+app:
+  name: MyApp
+  version: 1.0.0
+  message: 'This Message from YAML config file inside container'
+app_config:
+  host: 0.0.0.0
+  port: 1000
