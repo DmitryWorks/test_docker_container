@@ -1,0 +1,43 @@
+build container:
+root folder:
+docker build -t <myapp-name> .
+other folder:
+docker build -t test-flask-app ./basic_example
+
+run container:
+docker run --rm <myapp-name>
+forward a port default for example for Flask:
+docker run -p <port>:<port> <myapp-name>
+docker run -d -p 50000:50000 test-flask-app
+
+remove container:
+get container id:
+docker ps
+remove:
+docker rm -f <container_id_or_name>
+
+remove container image:
+get image id or name:
+docker images
+remove:
+docker rmi -f <image_id_or_name>
+
+
+
+All camands:
+-------------------------------------------
+Docker Images:
+Show images:
+docker images
+Delete image:
+docker rmi <image_id_or_name>
+Force delete image:
+docker image rm -f <image_id_or_name>
+
+Docker Containers:
+For stop:
+docker stop <container_id_or_name>
+Forced Kill:
+docker kill <container_id_or_name>
+Remove:
+docker rm <container_id_or_name>

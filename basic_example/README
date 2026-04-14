@@ -1,0 +1,17 @@
+build container:
+docker build -t test-flask-app ./basic_example
+
+run container:
+docker run -d -p 50000:50000 test-flask-app
+
+remove container:
+get container id:
+docker ps
+remove:
+docker rm -f <container-id-or-name>
+
+remove container image:
+get image id or name:
+docker images
+remove:
+docker rmi -f <image-id-or-name>
