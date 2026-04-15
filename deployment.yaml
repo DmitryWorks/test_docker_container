@@ -1,0 +1,37 @@
+# 1. create docker image: docker build -t flask-yaml-image .
+# 2. load into minikube: minikube image load flask-yaml-image
+# 3. check loaded image: minikube images ls
+# 3. create deployment.yaml file
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-yaml-app # pod name into kubectl get pods
+  labels:
+    app: flask-yaml-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-yaml-app
+  template:
+    metadata:
+      labels:
+        app: flask-yaml-app
+    spec:
+      containers:
+      - name: flask-yaml-app
+        # Replace with your local image name and tag
+        image: flask-yaml-image:latest
+        # CRITICAL: Prevents K8s from looking for the image online
+        imagePullPolicy: Never 
+        ports:
+        - containerPort: 1000
+# 4. run deployment in minikube: kubectl apply -f deployment.yaml
+# 5. check it: kubectl get pods 
+# return flask-yaml-app-.........
+# 6. Get super fast access to pod without create service.yaml
+# run in the CLI command: kubectl proxy --port=8001
+# 7. go to your pod use this (localhost:8001 is your proxy address) link and change variables:
+# http://localhost:8001/api/v1/namespaces/<namespace>/pods/<pod-name>/proxy/
+# working sample link:
+# http://localhost:8001/api/v1/namespaces/default/pods/flask-yaml-app-7896987784-dl7lz/proxy/
