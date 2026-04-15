@@ -1,4 +1,4 @@
-# sample config file for Flask app for testing
+# app_config.yaml sample config file for Flask app for testing
 app:
   name: MyApp
   version: 1.0.0
