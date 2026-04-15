@@ -10,7 +10,7 @@ from flask import Flask
 import yaml
 
 # Load YAML config file
-with open('config.yaml', 'r') as file:
+with open('app_config.yaml', 'r') as file:
     config = yaml.safe_load(file)
 
 app_name = config['app']['name']
