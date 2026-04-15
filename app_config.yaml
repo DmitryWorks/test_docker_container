@@ -2,7 +2,7 @@
 app:
   name: MyApp
   version: 1.0.0
-  message: 'This Message from YAML config file inside container'
+  message: 'This Message from YAML config file inside container and inside minikube pod!'
 app_config:
   host: 0.0.0.0
   port: 1000

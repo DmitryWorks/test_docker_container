@@ -1,3 +1,30 @@
+Minikube deployment steps:
+Deploy flow use docker: !!!NOT UPDATED IMAGE WHEN BUILD IN DOCKER!!!
+0.make any changes in app files
+docker build -t flask-yaml-image .
+minikube image load flask-yaml-image:latest --overwrite
+> for first deploy
+kubectl apply -f deployment.yaml
+> if you need to re deployed use:
+kubectl rollout restart deployment <deploymentname>
+> for example deployment name contain in deployment.yaml file
+kubectl rollout restart deployment flask-yaml-app
+kubectl get pods
+kubectl proxy --port=8001
+
+
+Deploy use minikube only:
+minikube image build -t flask-yaml-image .
+> for first deploy
+kubectl apply -f deployment.yaml
+> if you need to re deployed use:
+kubectl rollout restart deployment <deploymentname>
+> for example deployment name contain in deployment.yaml file
+kubectl rollout restart deployment flask-yaml-app
+kubectl get pods
+kubectl proxy --port=8001
+
+For Docker users:
 build container:
 root folder:
 docker build -t <myapp-name> .
